@@ -4,7 +4,7 @@
 #
 Name     : perl-Digest-MD5
 Version  : 2.55
-Release  : 1
+Release  : 2
 URL      : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Summary  : 'Perl interface to the MD-5 algorithm'
@@ -74,7 +74,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files doc
 %defattr(-,root,root,-)
-%doc /usr/share/man/man3/*
+%exclude /usr/share/man/man3/Digest::MD5.3
 
 %files lib
 %defattr(-,root,root,-)
