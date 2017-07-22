@@ -4,7 +4,7 @@
 #
 Name     : perl-Digest-MD5
 Version  : 2.55
-Release  : 4
+Release  : 5
 URL      : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Summary  : 'Perl interface to the MD-5 algorithm'
@@ -40,6 +40,9 @@ lib components for the perl-Digest-MD5 package.
 %setup -q -n Digest-MD5-2.55
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
@@ -53,7 +56,7 @@ fi
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make TEST_VERBOSE=1 test
 
 %install
