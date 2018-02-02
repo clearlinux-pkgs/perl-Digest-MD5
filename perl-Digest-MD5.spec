@@ -4,7 +4,7 @@
 #
 Name     : perl-Digest-MD5
 Version  : 2.55
-Release  : 7
+Release  : 8
 URL      : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Summary  : 'Perl interface to the MD-5 algorithm'
