@@ -4,14 +4,14 @@
 #
 Name     : perl-Digest-MD5
 Version  : 2.55
-Release  : 9
+Release  : 10
 URL      : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Summary  : 'Perl interface to the MD-5 algorithm'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-Digest-MD5-lib
-Requires: perl-Digest-MD5-doc
+Requires: perl-Digest-MD5-lib = %{version}-%{release}
+BuildRequires : buildreq-cpan
 
 %description
 The Digest::MD5 module allows you to use the RSA Data Security
@@ -20,12 +20,14 @@ algorithm takes as input a message of arbitrary length and produces as
 output a 128-bit "fingerprint" or "message digest" of the input.
 MD5 is described in RFC 1321.
 
-%package doc
-Summary: doc components for the perl-Digest-MD5 package.
-Group: Documentation
+%package dev
+Summary: dev components for the perl-Digest-MD5 package.
+Group: Development
+Requires: perl-Digest-MD5-lib = %{version}-%{release}
+Provides: perl-Digest-MD5-devel = %{version}-%{release}
 
-%description doc
-doc components for the perl-Digest-MD5 package.
+%description dev
+dev components for the perl-Digest-MD5 package.
 
 
 %package lib
@@ -46,7 +48,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 else
 %{__perl} Build.PL
 ./Build
@@ -62,9 +64,9 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -73,12 +75,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Digest/MD5.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Digest/MD5.pm
 
-%files doc
+%files dev
 %defattr(-,root,root,-)
 %exclude /usr/share/man/man3/Digest::MD5.3
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Digest/MD5/MD5.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/Digest/MD5/MD5.so
