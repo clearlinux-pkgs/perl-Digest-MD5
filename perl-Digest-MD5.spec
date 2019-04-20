@@ -4,7 +4,7 @@
 #
 Name     : perl-Digest-MD5
 Version  : 2.55
-Release  : 16
+Release  : 17
 URL      : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
 Summary  : 'Perl interface to the MD-5 algorithm'
@@ -25,6 +25,7 @@ Summary: dev components for the perl-Digest-MD5 package.
 Group: Development
 Requires: perl-Digest-MD5-lib = %{version}-%{release}
 Provides: perl-Digest-MD5-devel = %{version}-%{release}
+Requires: perl-Digest-MD5 = %{version}-%{release}
 
 %description dev
 dev components for the perl-Digest-MD5 package.
