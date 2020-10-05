@@ -1,5 +1,5 @@
 PKG_NAME := perl-Digest-MD5
-URL = http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-MD5-2.55.tar.gz
+URL = https://cpan.metacpan.org/authors/id/T/TO/TODDR/Digest-MD5-2.57.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
