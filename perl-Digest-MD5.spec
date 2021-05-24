@@ -4,7 +4,7 @@
 #
 Name     : perl-Digest-MD5
 Version  : 2.58
-Release  : 27
+Release  : 28
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/Digest-MD5-2.58.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/Digest-MD5-2.58.tar.gz
 Summary  : 'Perl interface to the MD-5 algorithm'
