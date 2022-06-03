@@ -4,7 +4,7 @@
 #
 Name     : perl-Digest-MD5
 Version  : 2.58
-Release  : 29
+Release  : 30
 URL      : https://cpan.metacpan.org/authors/id/T/TO/TODDR/Digest-MD5-2.58.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/T/TO/TODDR/Digest-MD5-2.58.tar.gz
 Summary  : 'Perl interface to the MD-5 algorithm'
@@ -65,12 +65,11 @@ find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
 find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %{_fixperms} %{buildroot}/*
 ## Remove excluded files
-rm -f %{buildroot}/usr/share/man/man3/Digest::MD5.3
+rm -f %{buildroot}*/usr/share/man/man3/Digest::MD5.3
 
 %files
 %defattr(-,root,root,-)
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/Digest/MD5.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/Digest/MD5/MD5.so
+/usr/lib/perl5/*
